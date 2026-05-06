@@ -3,7 +3,6 @@ import { axiosInstance } from "../lib/axios.js";
 import toast from "react-hot-toast";
 import { LogOut } from "lucide-react";
 import {io} from "socket.io-client"
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
 
 
 export const useAuthStore = create((set,get) => ({
@@ -117,7 +116,7 @@ uploadProfilePic: async (image) => {
     const {authUser} = get();
     if(!authUser|| get().socket?.connected) return
 
-    const socket= io(BASE_URL, {withCredentials:true})
+    const socket= io(import.meta.env.VITE_CLIENT_URL, {withCredentials:true})
      socket.connect();
 
      set({socket:socket})
