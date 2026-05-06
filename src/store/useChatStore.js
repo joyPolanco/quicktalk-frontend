@@ -207,6 +207,11 @@ export const useChatStore = create((set, get) => ({
             return null;
         }
     },
+        isPhoneModalOpen: false,
+
+    setIsPhoneModalOpen:(value)=>{
+        set({isPhoneModalOpen:value})
+    },
     isShareLinkOpen: false,
     setIsShareLinkOpen: (value) => {
         set({ isShareLinkOpen: value });

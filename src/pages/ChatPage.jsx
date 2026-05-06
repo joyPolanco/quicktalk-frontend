@@ -28,8 +28,8 @@ const ChatPage = () => {
     isConfigurationOpen,
     isCreateChatWindowOpen,
     isShareLinkOpen,
-    isLeaveChatOpen
-  } = useChatStore();
+    isLeaveChatOpen,
+     isPhoneModalOpen  } = useChatStore();
   const { socket, authUser, setOnlineUsers } = useAuthStore();
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const ChatPage = () => {
   return (
     <div className="relative w-full max-w-5xl h-[100]">
       <AddContactModal />
-      <PhoneModal />
+     { isPhoneModalOpen&&<PhoneModal />}
       <CreateGroupModal />
       {isShareLinkOpen? <ShareLinkModal/>: ""} 
        {isLeaveChatOpen && <LeaveChatModal />}    
